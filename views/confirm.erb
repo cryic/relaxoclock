@@ -1,0 +1,12 @@
+<html>
+    <head><title>youtube queue</title></head>
+    <body>
+        <p>Is this the video you want to submit?</p>
+       
+        <% if @vidurl %>
+            <p>a wild video appeared!</p>
+            <iframe width="560" height="315" src="<%= @vidurl %>" frameborder="0" allowfullscreen></iframe>
+        <% end %>
+        
+    </body>
+</html>

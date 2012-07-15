@@ -3,11 +3,11 @@
     <body>
         <p>Showing an erb page</p>
         <p>embedded video time!</p>
-       
-        <% if !@vid_src.empty? %>
-            <p>a wild video appeared!</p>
-            <iframe width="560" height="315" src="<%= @vid_src  %>" frameborder="0" allowfullscreen></iframe>
-        <% end %>
         
+        <form action='' method='post'>
+            youtube url: <input type='text' name='url' />
+            <input type='submit' />
+        </form>
+         
     </body>
 </html>
