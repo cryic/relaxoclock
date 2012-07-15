@@ -3,7 +3,11 @@
     <body>
         <p>Showing an erb page</p>
         <p>embedded video time!</p>
-        <iframe width="560" height="315" src="<%= vid_src  %>" frameborder="0" allowfullscreen></iframe>
-
+       
+        <% if !@vid_src.empty? %>
+            <p>a wild video appeared!</p>
+            <iframe width="560" height="315" src="<%= @vid_src  %>" frameborder="0" allowfullscreen></iframe>
+        <% end %>
+        
     </body>
 </html>
