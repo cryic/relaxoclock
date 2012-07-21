@@ -18,8 +18,17 @@ post '/' do
     url = params[:url]
     m = url.match(/watch\?v=(?<id>.+)/)
     #puts m[:id]
-    id = m[:id]
-    @vidurl = 'http://www.youtube.com/embed/' + id
-    add_to_list(id)
+    @id = m[:id]
+    @vidurl = 'http://www.youtube.com/embed/' + @id
     erb :confirm
+end
+
+post '/confirm/:id' do
+    id = params[:id]
+    if id
+        add_to_list(id)
+        'Your video was added to the queue'
+    else
+        'No video to add'
+    end
 end
