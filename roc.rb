@@ -23,7 +23,7 @@ post '/' do
     erb :confirm
 end
 
-post '/confirm/:id' do
+post '/confirm/:id' do #probably not best way to handle, security and so forth
     id = params[:id]
     if id
         add_to_list(id)
