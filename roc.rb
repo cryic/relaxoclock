@@ -1,4 +1,5 @@
 require 'sinatra'
+require_relative 'ipport'
 
 def add_to_list(url)
     File.open('videolist.vl', 'a') { |f|
@@ -18,15 +19,15 @@ post '/' do
     url = params[:url]
     m = url.match(/watch\?v=(?<id>.+)/)
     #puts m[:id]
-    @id = m[:id]
-    @vidurl = 'http://www.youtube.com/embed/' + @id
+    @@id = m[:id]
+    @vidurl = 'http://www.youtube.com/embed/' + @@id
     erb :confirm
 end
 
-post '/confirm/:id' do #probably not best way to handle, security and so forth
-    id = params[:id]
-    if id
-        add_to_list(id)
+post '/confirm' do 
+    #@id = params[:id]
+    if @@id
+        add_to_list(@@id)
         'Your video was added to the queue'
     else
         'No video to add'
